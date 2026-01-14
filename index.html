@@ -6,131 +6,240 @@
   <title>Taklif: PDP Junior - Bo'ka Filiali</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Montserrat', sans-serif; }
     .slide-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-    .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); }
+    .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); transition: all 0.3s ease; }
+    .glass-card:hover { transform: translateY(-10px); box-shadow: 0 15px 45px rgba(31, 38, 135, 0.2); }
     .gradient-text { background: linear-gradient(to right, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero-bg { background-image: url('https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
     .tech-bg { background-color: #0f172a; color: white; }
+    
+    /* Link Cards Styling */
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid #e2e8f0;
+      position: relative;
+    }
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border-color: #3b82f6;
+    }
+    .project-card .icon-wrapper {
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover .icon-wrapper {
+      transform: scale(1.1) rotate(5deg);
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-slate-800">
   
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur shadow-sm py-4">
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur shadow-sm py-4 transition-all duration-300">
     <div class="container mx-auto px-6 flex justify-between items-center">
       <div class="flex items-center gap-2">
         <img src="./logo.png" alt="" width="100">
       </div>
-      <div class="text-sm font-semibold text-gray-500 uppercase">
-        Bo'ka Tumani Hokimligi uchun
+      <div class="text-xs md:text-sm font-bold text-blue-600 uppercase tracking-wider border border-blue-100 px-3 py-1 rounded-full bg-blue-50">
+        Bo'ka Tumani Hokimligi
       </div>
     </div>
   </nav>
   
   <!-- SLIDE 1: KIRISH (HERO) -->
   <section class="slide-section hero-bg relative">
-    <div class="absolute inset-0 bg-blue-900/80"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-purple-900/90"></div>
     <div class="container mx-auto px-6 relative z-10 text-center text-white">
-      <span class="inline-block py-1 px-3 rounded-full bg-yellow-400 text-yellow-900 font-bold text-sm mb-6 animate-pulse">
-        DAVLAT VA HUSUSIY SEKTOR HAMKORLIGI
+      <span class="inline-block py-2 px-4 rounded-full bg-yellow-400 text-yellow-900 font-extrabold text-xs md:text-sm mb-8 shadow-lg animate-bounce">
+        🚀 DAVLAT VA HUSUSIY SEKTOR HAMKORLIGI
       </span>
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-        Bo'ka Tumanida <br> Zamonaviy IT va Robototexnika Markazi
+      <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+        Bo'ka Tumanida <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">Kelajak IT Markazi</span>
       </h1>
-      <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8 font-light">
+      <p class="text-lg md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
         Biz nafaqat bolalarni o‘qitamiz, balki tuman yoshlarini 
-        <span class="font-bold text-yellow-300">ish bilan ta'minlaymiz.</span>
+        <span class="font-bold text-yellow-300 bg-white/10 px-2 rounded">kafolatli ish</span> bilan ta'minlaymiz.
       </p>
-      <a href="#proposal" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition transform hover:scale-105 shadow-lg">
-        Loyihani Ko'rish <i class="fas fa-arrow-down ml-2"></i>
-      </a>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#proposal" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-500 transition shadow-lg hover:shadow-blue-500/50 flex items-center justify-center gap-2">
+          Loyihani Ko'rish <i class="fas fa-arrow-down"></i>
+        </a>
+        <a href="#projects" class="bg-white text-blue-900 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg flex items-center justify-center gap-2">
+          Real Natijalar <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Decorative Shapes -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none transform rotate-180">
+      <svg class="relative block w-[calc(100%+1.3px)] h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-gray-50"></path>
+      </svg>
     </div>
   </section>
   
   <!-- SLIDE 2: BIZ KIMMIZ? -->
-  <section class="slide-section bg-white">
-    <div class="container mx-auto px-6 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <h2 class="text-3xl font-bold mb-6 text-slate-900">PDP Junior o'zi nima?</h2>
-          <p class="text-gray-600 mb-4 text-lg">
+          <h2 class="text-4xl font-extrabold mb-6 text-slate-900 leading-tight">PDP Junior — <span class="text-blue-600">Buyuk Maqsadlar</span> Maskani</h2>
+          <p class="text-gray-600 mb-6 text-lg leading-relaxed">
             Biz O'zbekistondagi eng yirik IT ekotizim — <b>PDP Ecosystem</b> tarkibiga kiruvchi, 
-            bolalar va o'smirlarni kelajak kasblariga yo'naltiruvchi innovatsion maktabmiz.
+            bolalar va o'smirlarni shunchaki foydalanuvchi emas, balki <b>yaratuvchi</b> bo'lishga o'rgatuvchi innovatsion maktabmiz.
           </p>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl"><i class="fas fa-brain"></i></div>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+              <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600 text-2xl flex-shrink-0"><i class="fas fa-brain"></i></div>
               <div>
-                <h4 class="font-bold">Mantiqiy Fikrlar</h4>
-                <p class="text-sm text-gray-500">Biz kod yozishdan oldin fikrlashni o'rgatamiz.</p>
+                <h4 class="font-bold text-lg mb-1">Algoritmik Fikrlash</h4>
+                <p class="text-sm text-gray-500">Biz kod yozishdan oldin muammoni mantiqiy hal qilishni o'rgatamiz.</p>
               </div>
             </div>
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl"><i class="fas fa-project-diagram"></i></div>
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+              <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-600 text-2xl flex-shrink-0"><i class="fas fa-laptop-code"></i></div>
               <div>
-                <h4 class="font-bold">Amaliy Loyihalar</h4>
-                <p class="text-sm text-gray-500">Har bir bola o'z o'yini yoki robotini yaratadi.</p>
+                <h4 class="font-bold text-lg mb-1">Real Portfolio</h4>
+                <p class="text-sm text-gray-500">12 yoshli o'quvchi o'zining birinchi veb-sayti yoki o'yinini yaratadi.</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1504384308090-c54be3855091?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="rounded-2xl shadow-2xl z-10 relative" alt="Bolalar ta'limi">
-          <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-xl shadow-xl z-20">
-            <p class="text-3xl font-bold">5,000+</p>
-            <p class="text-sm">Bitiruvchilar</p>
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+          <!-- Updated Image for Kids Coding -->
+          <img src="./image.png" class="rounded-2xl shadow-2xl z-10 relative w-full object-cover h-[400px]" alt="Bola kompyuterda ishlamoqda">
+          <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl z-20 border-l-4 border-blue-600">
+            <p class="text-4xl font-extrabold text-slate-800">5,000+</p>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Muvaffaqiyatli Bitiruvchilar</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- NEW SECTION: REAL PROJECTS (LINKS) -->
+  <section id="projects" class="py-24 bg-slate-100 relative">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Amaliy Natijalar</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">O'quvchilarimizning Real Loyihalari</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Bu loyihalar shunchaki nazariya emas. O'quvchilarimiz yaratgan va hozirda internetda ishlab turgan haqiqiy veb-saytlar.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Project 1: Portfolio -->
+        <a href="https://sardorbeksportfolio.netlify.app/" target="_blank" class="project-card group block">
+          <div class="h-32 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            <div class="icon-wrapper w-16 h-16 bg-white rounded-full flex items-center justify-center text-indigo-600 text-3xl shadow-lg">
+              <i class="fas fa-user-astronaut"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">Shaxsiy Portfolio</h3>
+            <p class="text-sm text-gray-500 mb-4">O'quvchining o'z yutuqlari va ishlarini namoyish etuvchi sayt.</p>
+            <div class="text-indigo-600 font-bold text-sm flex items-center gap-2">
+              Ko'rish <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Project 2: Gym -->
+        <a href="https://men-gym-website.netlify.app/" target="_blank" class="project-card group block">
+          <div class="h-32 bg-gradient-to-br from-gray-700 to-black flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            <div class="icon-wrapper w-16 h-16 bg-white rounded-full flex items-center justify-center text-slate-900 text-3xl shadow-lg">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-slate-600 transition-colors">Men's Gym</h3>
+            <p class="text-sm text-gray-500 mb-4">Sport zali uchun zamonaviy va qulay veb-sayt dizayni.</p>
+            <div class="text-slate-800 font-bold text-sm flex items-center gap-2">
+              Ko'rish <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Project 3: Elite Sports -->
+        <a href="https://elite-sports-hub.netlify.app/" target="_blank" class="project-card group block">
+          <div class="h-32 bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            <div class="icon-wrapper w-16 h-16 bg-white rounded-full flex items-center justify-center text-red-500 text-3xl shadow-lg">
+              <i class="fas fa-trophy"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-red-500 transition-colors">Elite Sports Hub</h3>
+            <p class="text-sm text-gray-500 mb-4">Sport yangiliklari va mahsulotlari uchun maxsus platforma.</p>
+            <div class="text-red-500 font-bold text-sm flex items-center gap-2">
+              Ko'rish <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Project 4: Healthy Food -->
+        <a href="https://helthyfood.netlify.app/" target="_blank" class="project-card group block">
+          <div class="h-32 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+            <div class="icon-wrapper w-16 h-16 bg-white rounded-full flex items-center justify-center text-green-600 text-3xl shadow-lg">
+              <i class="fas fa-leaf"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-green-600 transition-colors">Healthy Food</h3>
+            <p class="text-sm text-gray-500 mb-4">Sog'lom ovqatlanish va yetkazib berish xizmati sayti.</p>
+            <div class="text-green-600 font-bold text-sm flex items-center gap-2">
+              Ko'rish <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+        </a>
+        
       </div>
     </div>
   </section>
   
   <!-- SLIDE 3: NEGA AYNAN IT VA ROBOTOTEXNIKA? (HOKIMGA JAVOB) -->
-  <section class="py-20 bg-slate-50">
+  <section class="py-20 bg-white">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-3xl font-bold text-slate-900 mb-4">Nega bu Bo'ka yoshlari uchun muhim?</h2>
-        <p class="text-gray-500 max-w-2xl mx-auto">Hokim buva, bugungi kunda oddiy kompyuter savodxonligi yetarli emas. Mana nima uchun:</p>
+        <p class="text-gray-500 max-w-2xl mx-auto">Hurmatli hokim, bugungi kunda oddiy kompyuter savodxonligi yetarli emas. Mana nima uchun:</p>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div class="glass-card p-8 hover:-translate-y-2 transition duration-300 border-t-4 border-blue-500">
-          <i class="fas fa-robot text-4xl text-blue-500 mb-6"></i>
+        <div class="glass-card p-8 border-t-4 border-blue-500 flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-robot text-4xl text-blue-500"></i>
+          </div>
           <h3 class="text-xl font-bold mb-3">Robototexnika</h3>
           <p class="text-gray-600 text-sm mb-4">Bu shunchaki o'yinchoq emas. Bu fizika, mexanika va muhandislikdir.</p>
-          <ul class="text-sm text-gray-500 list-disc ml-4 space-y-1">
-            <li>Muammoga yechim topish</li>
-            <li>Qo'l motorikasi rivoji</li>
-            <li>Kelajak zavodlari muhandislari</li>
-          </ul>
         </div>
         
         <!-- Card 2 -->
-        <div class="glass-card p-8 hover:-translate-y-2 transition duration-300 border-t-4 border-purple-500">
-          <i class="fas fa-code text-4xl text-purple-500 mb-6"></i>
+        <div class="glass-card p-8 border-t-4 border-purple-500 flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-code text-4xl text-purple-500"></i>
+          </div>
           <h3 class="text-xl font-bold mb-3">Dasturlash (IT)</h3>
-          <p class="text-gray-600 text-sm mb-4">Ingliz tili va matematikani amalda qo'llashning eng zo'r yo'li.</p>
-          <ul class="text-sm text-gray-500 list-disc ml-4 space-y-1">
-            <li>Algoritmik fikrlash</li>
-            <li>Kreativlik</li>
-            <li>Global bozorda ishlash imkoni</li>
-          </ul>
+          <p class="text-gray-600 text-sm mb-4">Mantiqiy fikrlashni rivojlantirish va xalqaro bozorda ishlash imkoniyati.</p>
         </div>
         
         <!-- Card 3 -->
-        <div class="glass-card p-8 hover:-translate-y-2 transition duration-300 border-t-4 border-green-500">
-          <i class="fas fa-chart-line text-4xl text-green-500 mb-6"></i>
+        <div class="glass-card p-8 border-t-4 border-green-500 flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-chart-line text-4xl text-green-500"></i>
+          </div>
           <h3 class="text-xl font-bold mb-3">Tuman Reytingi</h3>
-          <p class="text-gray-600 text-sm mb-4">Raqamlashtirish va yoshlar bandligi bo'yicha tuman ko'rsatkichi oshadi.</p>
-          <ul class="text-sm text-gray-500 list-disc ml-4 space-y-1">
-            <li>5 tashabbus ijrosi</li>
-            <li>"Yoshlar daftari" bilan ishlash</li>
-            <li>Zamonaviy kadrlar zaxirasi</li>
-          </ul>
+          <p class="text-gray-600 text-sm mb-4">Raqamlashtirish va yoshlar bandligi bo'yicha tuman ko'rsatkichining oshishi.</p>
         </div>
       </div>
     </div>
@@ -138,63 +247,64 @@
   
   <!-- SLIDE 4: ASOSIY TAKLIF (SOCIAL MODEL) -->
   <section id="proposal" class="slide-section tech-bg relative">
+    <div class="absolute inset-0 bg-slate-900"></div>
     <div class="container mx-auto px-6 py-20 relative z-10">
       <div class="flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-1/2">
           <span class="text-blue-400 font-bold tracking-widest uppercase mb-2 block">Bizning noyob taklif</span>
           <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
             "Train & Employ"<br>
-            <span class="text-blue-500">O'qit va Ish bilan ta'minla</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">O'qit va Ish bilan ta'minla</span>
           </h2>
-          <p class="text-gray-300 text-lg mb-8">
-            Biz Toshkentdan tayyor mutaxassis olib kelmaymiz. Biz Bo'kaning o'z farzandlarini mutaxassis qilib yetishtiramiz.
+          <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+            Biz Toshkentdan tayyor mutaxassis olib kelmaymiz. Biz Bo'kaning o'z farzandlarini mutaxassis qilib yetishtiramiz va shu yerda ishlatamiz.
           </p>
           
-          <div class="space-y-6">
-            <div class="flex">
+          <div class="space-y-8">
+            <div class="flex group">
               <div class="flex-shrink-0 mt-1">
-                <span class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold">1</span>
+                <span class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg group-hover:scale-110 transition-transform">1</span>
               </div>
-              <div class="ml-4">
-                <h4 class="text-xl font-bold text-white">Saralash</h4>
-                <p class="text-gray-400">Bo'ka tumanidagi 20-25 yoshli, IT ga qiziqishi bor yoshlarni tanlab olamiz.</p>
+              <div class="ml-6">
+                <h4 class="text-xl font-bold text-white mb-1">Saralash</h4>
+                <p class="text-gray-400 text-sm">Bo'ka tumanidagi 20-25 yoshli, IT ga qiziqishi bor yoshlarni tanlab olamiz.</p>
               </div>
             </div>
-            <div class="flex">
+            <div class="flex group">
               <div class="flex-shrink-0 mt-1">
-                <span class="w-8 h-8 rounded-full bg-yellow-500 text-black flex items-center justify-center font-bold">2</span>
+                <span class="w-10 h-10 rounded-full bg-yellow-500 text-slate-900 flex items-center justify-center font-bold shadow-lg group-hover:scale-110 transition-transform">2</span>
               </div>
-              <div class="ml-4">
-                <h4 class="text-xl font-bold text-white">Bepul Grant (Toshkentda)</h4>
-                <p class="text-gray-400">Ularni Toshkentga olib kelib, <b>3-5 oy davomida BEPUL</b> mentorlikka o'qitamiz (Pedagogika + IT).</p>
+              <div class="ml-6">
+                <h4 class="text-xl font-bold text-white mb-1">Bepul Grant (Toshkentda)</h4>
+                <p class="text-gray-400 text-sm">Ularni Toshkentga olib kelib, <b>3-5 oy davomida BEPUL</b> mentorlikka o'qitamiz.</p>
               </div>
             </div>
-            <div class="flex">
+            <div class="flex group">
               <div class="flex-shrink-0 mt-1">
-                <span class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center font-bold">3</span>
+                <span class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center font-bold text-white shadow-lg group-hover:scale-110 transition-transform">3</span>
               </div>
-              <div class="ml-4">
-                <h4 class="text-xl font-bold text-white">Ishga joylashish (Bo'kada)</h4>
-                <p class="text-gray-400">Mutaxassis bo'lib yetishgan yoshlar Bo'kaga qaytib, yangi filialda <b>Mentor</b> bo'lib ish boshlaydi.</p>
+              <div class="ml-6">
+                <h4 class="text-xl font-bold text-white mb-1">Ishga joylashish (Bo'kada)</h4>
+                <p class="text-gray-400 text-sm">Mutaxassis bo'lib yetishgan yoshlar Bo'kaga qaytib, yangi filialda <b>Mentor</b> bo'lib ish boshlaydi.</p>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="md:w-1/2 bg-white/10 p-8 rounded-3xl border border-white/20 backdrop-blur-sm">
-          <h3 class="text-2xl font-bold mb-6 text-center">Natijada nima bo'ladi?</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-slate-800 p-4 rounded-xl text-center">
-              <div class="text-3xl text-yellow-400 font-bold mb-1">10-15</div>
-              <div class="text-xs text-gray-300">Nafar yoshlar daromadli kasb egasi bo'ladi</div>
+        <div class="md:w-1/2 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
+          <h3 class="text-2xl font-bold mb-8 text-center text-white">Hamkorlikdan Kutilayotgan Natija</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="bg-slate-800/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 transition">
+              <div class="text-4xl text-yellow-400 font-extrabold mb-2">15+</div>
+              <div class="text-sm text-gray-300 font-medium">Yangi ish o'rinlari (Yoshlar uchun)</div>
             </div>
-            <div class="bg-slate-800 p-4 rounded-xl text-center">
-              <div class="text-3xl text-green-400 font-bold mb-1">500+</div>
-              <div class="text-xs text-gray-300">Nafar o'quvchi IT ta'lim oladi</div>
+            <div class="bg-slate-800/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 transition">
+              <div class="text-4xl text-green-400 font-extrabold mb-2">500+</div>
+              <div class="text-sm text-gray-300 font-medium">Nafar o'quvchi IT sohasida</div>
             </div>
-            <div class="col-span-2 bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-xl text-center">
-              <div class="text-white font-bold text-lg"><i class="fas fa-check-circle mr-2"></i> Ijtimoiy Barqarorlik</div>
-              <div class="text-xs text-blue-100 mt-1">Yoshlar ko'chada emas, ilm bilan band bo'ladi.</div>
+            <div class="col-span-2 bg-gradient-to-r from-blue-600 to-blue-700 p-6 rounded-2xl text-center shadow-lg transform hover:scale-[1.02] transition">
+              <div class="text-white font-bold text-lg mb-1"><i class="fas fa-check-circle mr-2"></i> Ijtimoiy Barqarorlik</div>
+              <div class="text-xs text-blue-100 opacity-90">Yoshlar ko'chada emas, ilm bilan band bo'ladi.</div>
             </div>
           </div>
         </div>
@@ -203,34 +313,37 @@
   </section>
   
   <!-- SLIDE 5: NIMA SO'RAYMIZ? -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-white">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-slate-900 mb-12">Loyihani boshlash uchun nima kerak?</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-16">Loyihani boshlash uchun nima kerak?</h2>
       
-      <div class="flex flex-col md:flex-row justify-center gap-8">
-        <div class="w-full md:w-1/3 bg-gray-50 p-8 rounded-2xl border border-gray-200">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mx-auto mb-6">
+      <div class="flex flex-col md:flex-row justify-center gap-8 mb-16">
+        <div class="w-full md:w-1/3 bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition duration-300">
+          <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-3xl mx-auto mb-8 shadow-inner">
             <i class="fas fa-building"></i>
           </div>
-          <h3 class="font-bold text-xl mb-4">Lokatsiya (Bino)</h3>
-          <p class="text-gray-600">Aholi gavjum joydan, zamonaviy talablarga javob beradigan bino ajratishda amaliy yordam.</p>
+          <h3 class="font-bold text-2xl mb-4 text-slate-800">Lokatsiya (Bino)</h3>
+          <p class="text-gray-600 leading-relaxed">Aholi gavjum, qatnov qulay bo'lgan hududdan zamonaviy talablarga javob beradigan bino ajratishda amaliy yordam.</p>
         </div>
         
-        <div class="w-full md:w-1/3 bg-gray-50 p-8 rounded-2xl border border-gray-200">
-          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-2xl mx-auto mb-6">
+        <div class="w-full md:w-1/3 bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:shadow-xl transition duration-300">
+          <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-3xl mx-auto mb-8 shadow-inner">
             <i class="fas fa-bullhorn"></i>
           </div>
-          <h3 class="font-bold text-xl mb-4">Targ'ibot</h3>
-          <p class="text-gray-600">Maktablar va mahalla raislari bilan hamkorlikda tushuntirish ishlarini olib borish.</p>
+          <h3 class="font-bold text-2xl mb-4 text-slate-800">Targ'ibot</h3>
+          <p class="text-gray-600 leading-relaxed">Maktablar, mahalla raislari va ota-onalar bilan hamkorlikda tushuntirish ishlarini olib borish.</p>
         </div>
       </div>
       
-      <div class="mt-16 bg-blue-900 text-white p-8 rounded-2xl shadow-2xl max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between">
-        <div class="text-left mb-6 md:mb-0">
-          <h3 class="text-2xl font-bold mb-2">Hamkorlikka tayyormisiz?</h3>
-          <p class="text-blue-200">Biz Bo'ka yoshlari kelajagiga sarmoya kiritishga tayyormiz.</p>
+      <div class="bg-gradient-to-r from-slate-900 to-blue-900 text-white p-10 md:p-12 rounded-3xl shadow-2xl max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        
+        <div class="text-left relative z-10">
+          <h3 class="text-3xl font-bold mb-3">Hamkorlikka tayyormisiz?</h3>
+          <p class="text-blue-200 text-lg">Biz Bo'ka yoshlari kelajagiga bugun sarmoya kiritishga tayyormiz.</p>
         </div>
-        <button class="bg-yellow-400 text-yellow-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg">
+        <button class="bg-yellow-400 text-slate-900 px-10 py-4 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg hover:shadow-yellow-400/50 transform hover:scale-105 relative z-10 whitespace-nowrap">
           Memorandum Imzolash
         </button>
       </div>
@@ -238,8 +351,13 @@
   </section>
   
   <!-- Footer -->
-  <footer class="bg-slate-900 text-gray-500 py-8 text-center text-sm">
-    <p>&copy; 2026 PDP Junior. Barcha huquqlar himoyalangan.</p>
+  <footer class="bg-slate-900 text-gray-500 py-10 text-center text-sm border-t border-slate-800">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-center gap-2 mb-4 opacity-50">
+        <i class="fas fa-code"></i> with <i class="fas fa-heart text-red-500"></i> for Bo'ka
+      </div>
+      <p>&copy; 2026 PDP Junior. Barcha huquqlar himoyalangan.</p>
+    </div>
   </footer>
   
 </body>
